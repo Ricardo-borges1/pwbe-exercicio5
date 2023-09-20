@@ -1,14 +1,16 @@
-var calculo=require('./module/CalcularParesImpares')
-var readline=require('readline')
-var entradaDados=readline.createInterface({
+const calcularParesImpares = require('./module/CalcularParesImpares');
+const readline = require('readline');
+
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
-})
-entradaDados.question('Digite o valor inical: ',function(valorInicialUsuario){
-    valorInicial=valorInicialUsuario
-    entradaDados.question('Digite o valor final: ',function(valorFinalUsuario){
-        valorFinal=valorFinalUsuario
-        console.log(calculo.calcularParesOuImpares(valorInicial,valorFinal))
-        entradaDados.close()
-    })
-})
+});
+
+rl.question('Digite o valor inicial: ', (valorInicialUsuario) => {
+    const valorInicial = valorInicialUsuario;
+    rl.question('Digite o valor final: ', (valorFinalUsuario) => {
+        const valorFinal = valorFinalUsuario;
+        console.log(calcularParesImpares.calcularParesOuImpares(valorInicial, valorFinal));
+        rl.close();
+    });
+});
